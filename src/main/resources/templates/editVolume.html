@@ -1,0 +1,11 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h2>Edit Rectangle Cube</h2>
+    <form action="#" th:action="@{/saveCube}" th:object="${selectedCube}" method="get">
+    	<input type="hidden" name="id" th:value="*{id}"/><br>
+    	<p>Width: <input type="number" th:field="*{width}" /></p>
+        <p>Length: <input type="number" th:field="*{length}" /></p>
+        <p>Height: <input type="number" th:field="*{height}" /></p>
+        <p><input type="submit" value="Save" /> </p>
+    </form>
+</body>

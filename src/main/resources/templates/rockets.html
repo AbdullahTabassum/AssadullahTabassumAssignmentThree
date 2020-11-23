@@ -1,0 +1,36 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1>View Reusable Rockets</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Height</th>
+			<th>Capacity</th>
+			<th>Reuses</th>	
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<tr th:each="rocket:${rockets}">
+			<td th:text="${rocket.name}"></td>
+			<td th:text="${rocket.height}"></td>
+			<td th:text="${rocket.capacity}"></td>	
+			<td th:text="${rocket.reuses}"></td>	
+			<td>
+				<a href="" th:href="@{/editRocket/{id}(id=${rocket.id})}">EDIT</a>
+			</td>	
+			<td>
+				<a href="" th:href="@{/deleteRocket/{id}(id=${rocket.id})}">DELETE</a>
+			</td>	
+		</tr>
+	</table>
+	
+	<h2>Add Cube</h2>
+    <form action="#" th:action="@{/addRocket}" th:object="${newRocket}" method="get">
+    	<p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Height: <input type="number" th:field="*{height}" /></p>
+        <p>Capacity: <input type="number" th:field="*{capacity}" /></p>
+        <p>Reuses: <input type="number" th:field="*{reuses}" /></p>
+        <p><input type="submit" value="Submit" /> </p>
+    </form>
+</body>
+</html>

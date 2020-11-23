@@ -1,0 +1,12 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h2>Edit Reusable Rocket</h2>
+    <form action="#" th:action="@{/saveRocket}" th:object="${selectedRocket}" method="get">
+    	<input type="hidden" name="id" th:value="*{id}"/><br>
+    	<p>Name: <input type="text" th:field="*{name}" /></p>
+    	<p>Height: <input type="number" th:field="*{height}" /></p>
+        <p>Capacity: <input type="number" th:field="*{capacity}" /></p>
+        <p>Reuses: <input type="number" th:field="*{reuses}" /></p>
+        <p><input type="submit" value="Save" /> </p>
+    </form>
+</body>

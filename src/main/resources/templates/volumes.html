@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1>View Rectangles Cubes</h1>
+	<table>
+		<tr>
+			<th>Width</th>
+			<th>Height</th>
+			<th>Length</th>
+			<th>Volume</th>	
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<tr th:each="cube:${cubes}">
+			<td th:text="${cube.width}"></td>
+			<td th:text="${cube.height}"></td>
+			<td th:text="${cube.length}"></td>	
+			<td th:with="volume = ${cube.length * cube.height * cube.width}" th:text="${volume}"></td>	
+			<td>
+				<a href="" th:href="@{/editCube/{id}(id=${cube.id})}">EDIT</a>
+			</td>	
+			<td>
+				<a href="" th:href="@{/deleteCube/{id}(id=${cube.id})}">DELETE</a>
+			</td>	
+		</tr>
+	</table>
+	
+	<h2>Add Cube</h2>
+    <form action="#" th:action="@{/addCube}" th:object="${newCube}" method="get">
+    	<p>Width: <input type="number" th:field="*{width}" /></p>
+        <p>Length: <input type="number" th:field="*{length}" /></p>
+        <p>Height: <input type="number" th:field="*{height}" /></p>
+        <p><input type="submit" value="Submit" /> </p>
+    </form>
+</body>
+</html>
